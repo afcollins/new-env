@@ -18,8 +18,8 @@ wget https://dl.grafana.com/grafana/release/12.4.3/grafana_12.4.3_24388279614_li
 tar -zxf grafana_12.4.3_24388279614_linux_amd64.tar.gz
 
 # Install prometheus checksum hacks for prow metricsballs
-for i in promtool.skip-checksum-prow-metricsballs flush_wal.linux prometheus.skip-checksum-for-prow-metricsballs ; do
-  wget https://storage.scalelab.redhat.com/ancollin/binaries/${i} -P ~/.local/bin/
+for i in start_prometheus.sh promtool.skip-checksum-prow-metricsballs flush_wal.linux prometheus.skip-checksum-for-prow-metricsballs ; do
+  wget --no-check-certificate https://storage.scalelab.redhat.com/ancollin/binaries/${i} -P ~/.local/bin/
 done
 
 # Install dust
