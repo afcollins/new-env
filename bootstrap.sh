@@ -24,3 +24,80 @@ done
 
 # Install dust
 curl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh
+
+# Other things to add back
+#
+# /root:
+# git
+# go
+# go1.26.2.linux-amd64.tar.gz
+# openshift-client-linux-amd64-rhel9-4.22.0-rc.1.tar.gz
+# recording-rules
+# series.json
+# setup-interfaces.sh
+# update-latest-rhel-release.sh
+#
+# TODO Add aliases to bashrc
+# alias dirs='dirs -p'
+# alias jd='echo "## jobs ##" ; jobs ; echo "## dirs ##" ; dirs -p '
+# alias sshstorage='ssh ancollin@shell.storage.scalelab.redhat.com'
+#
+# TODO Configure global ~/.config/git/ignore
+#
+#23:31 # cat set_env.sh
+#!/bin/bash
+#export KUBECONFIG=/root/ancollin/.vlan602.kubeconfig
+#export KUBE_BURNER_OCP=/root/ancollin/.kube-burner-ocp
+#alias kube-burner-ocp=/root/ancollin/.kube-burner-ocp
+#alias ochub='oc --kubeconfig=/root/sno/hub/kubeconfig'
+#
+#export DFMT='%F-%H%M%S'
+#
+#function getnodes() {
+#  local now=$(date +"$DFMT")
+#  oc get nodes -o wide -A $1 > oc_g_nodes.${now}.wide
+#}
+#
+#function getpods() {
+#  local now=$(date +"$DFMT")
+#  oc get pods -o wide -A $1 > oc_g_pods.${now}.wide
+#}
+#function getpodspvc() {
+#  local now=$(date +"$DFMT")
+#  oc get pods -o yaml -n pvc-density $1 > oc_g_pods_-npvc-density.${now}.yaml
+#}
+#function getsnrpvc() {
+#  local now=$(date +"$DFMT")
+#  oc get snr -o yaml -n openshift-workload-availability  $1 > oc_g_snr.${now}.yaml
+#}
+
+# Get pods
+# alias getsnrcm="oc get po -n openshift-workload-availability -l self-node-remediation-operator"
+# alias getnhccm="oc get po -n openshift-workload-availability -l app.kubernetes.io/component=controller-manager"
+# alias getleases="oc  -n openshift-workload-availability get lease -ocustom-columns=HOLDER:.spec.holderIdentity"
+#
+#function logsnhcleader() {
+#  local leader=$(getleases | grep healthcheck | cut -d '_' -f 1)
+#  local now=$(date +"$DFMT")
+#  oc logs -n openshift-workload-availability $leader > logs.${leader}.${now}.log
+#}
+#function logssnrcm() {
+#  local leader=$(getleases | grep remediation | cut -d '_' -f 1)
+#  local now=$(date +"$DFMT")
+#  oc logs -n openshift-workload-availability $leader > logs.${leader}.${now}.log
+#}
+#
+#alias debuginfra0='oc debug node/e31-h06-000-r640'
+#alias debuginfra1='oc debug node/e31-h01-000-r640'
+#
+#describe-node() {
+#  local node="$1"
+#  if [[ -z "$node" ]]; then
+#    echo "Usage: describe-node <node>" >&2
+#    return 1
+#  fi
+#  oc describe nodes $node > oc_d_nodes.${node}.$( date +"%F-%H%M" ).describe.txt
+#}
+#
+#GIT_PROMPT_ONLY_IN_REPO=1
+#source "$HOME/ancollin/.bash-git-prompt/gitprompt.sh"
