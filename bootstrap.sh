@@ -21,6 +21,7 @@ tar -zxf grafana_12.4.3_24388279614_linux_amd64.tar.gz
 for i in start_prometheus.sh promtool.skip-checksum-prow-metricsballs flush_wal.linux prometheus.skip-checksum-for-prow-metricsballs ; do
   wget --no-check-certificate https://storage.scalelab.redhat.com/ancollin/binaries/${i} -P ~/.local/bin/
 done
+chmod +x ~/.local/bin/*
 
 # Install dust
 curl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh
