@@ -2,7 +2,7 @@
 ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519
 
 mkdir -p ~/.local/{bin,share/prometheus}
-dnf install -y git vim tmux wget python3.12
+dnf install -y git vim tmux wget python3.12 python3.12-pip make helm
 # create tmux.conf
 
 # Set up prometheus
@@ -41,6 +41,14 @@ EOF
 # git
 # go
 # go1.26.2.linux-amd64.tar.gz
+# Install Go
+wget https://go.dev/dl/go1.26.4.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.26.4.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin"  >> ~/.bashrc
+
+# install kind
+[ $(uname -m) = x86_64 ] && curl -Lo ~/.local/bin/kind https://kind.sigs.k8s.io/dl/v0.32.0/kind-linux-amd64
+
 # openshift-client-linux-amd64-rhel9-4.22.0-rc.1.tar.gz
 # recording-rules
 # series.json
